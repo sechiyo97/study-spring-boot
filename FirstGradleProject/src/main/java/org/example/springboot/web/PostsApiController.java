@@ -13,17 +13,37 @@ public class PostsApiController {
 
     private final PostsService postsService;
 
-    @PostMapping("/api/v1/posts")
+    /* (index.js 중)
+            type: 'POST',
+            url: '/api/v1/posts',
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+     */
+    @PostMapping("/api/v1/posts") // POST
     public Long save(@RequestBody PostsSaveRequestDto requestDto) {
         return postsService.save(requestDto);
     }
 
-    @PutMapping("/api/v1/posts/{id}")
+    /* (index.js 중)
+            type: 'PUT',
+            url: '/api/v1/posts/'+id,
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+     */
+    @PutMapping("/api/v1/posts/{id}") // PUT
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
         return postsService.update(id, requestDto);
     }
 
-    @DeleteMapping("/api/v1/posts/{id}")
+    /* (index.js 중)
+            type: 'DELETE',
+            url: '/api/v1/posts/'+id,
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8'
+     */
+    @DeleteMapping("/api/v1/posts/{id}") // DELETE
     public Long delete(@PathVariable Long id) {
         postsService.delete(id);
         return id;

@@ -6,6 +6,9 @@ branches:
   only:
     - master
 
+before install:
+  - chmod +x build.sh
+
 # Travis CI 서버의 Home
 cache:
   directories:
